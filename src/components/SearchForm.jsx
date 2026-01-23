@@ -1,4 +1,8 @@
+import { useGlobalContext } from '../context';
+
 const SearchForm = () => {
+  const { setSearchTerm } = useGlobalContext();
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -6,7 +10,7 @@ const SearchForm = () => {
     const searchValue = e.target.elements?.search?.value?.trim(); // Safely access the input value, even if the 'search' element is renamed or removed in the DOM
     if (!searchValue) return;
 
-    console.log(searchValue);
+    setSearchTerm(searchValue);
   };
 
   return (
